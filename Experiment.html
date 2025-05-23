@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive SVG-Clipped Video</title>
+  <style>
+    .container {
+      max-width: 1408px;
+      height: 100vh;
+      display: flex;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    .svg-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1408 / 280;
+      margin: auto;
+    }
+
+    .svg-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      clip-path: url(#video-clip);
+      -webkit-clip-path: url(#video-clip);
+    }
+
+    .magneticSquare {
+      position: absolute;
+      background-color: black;
+      z-index: 1;
+      transition: transform 0.1s ease;
+      box-sizing: border-box;
+    }
+
+    svg {
+      position: absolute;
+      width: 0;
+      height: 0;
+    }
+
+    .magneticSquare1 {
+        width: 29.5%;
+        height: auto;
+        aspect-ratio: 416 / 312;
+        top: 47px;
+        left: 56px;
+        display: grid;
+        padding: 42px 32px;
+        border-radius: 26px;
+        box-shadow: 0px 1.13px 28.14px rgba(69, 42, 124, 0.1);
+        box-shadow: inset 0 0 0 1px #FFFFFF;
+        backdrop-filter: blur(65.85px);
+        -webkit-backdrop-filter: blur(65.85px);
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .magneticSquare2 {
+
+    }
+
+    .magneticSquare3 {
+
+    }
+
+    .magneticSquare4 {
+
+    }
+
+    .magneticSquare5 {
+
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="svg-wrapper">
+      <div class="magneticSquare magneticSquare1"></div>
+      <div class="magneticSquare magneticSquare2"></div>
+      <div class="magneticSquare magneticSquare3"></div>
+      <div class="magneticSquare magneticSquare4"></div>
+      <div class="magneticSquare magneticSquare5"></div>
+
+      <video autoplay loop muted playsinline>
+        <source src="/trimmedCompressedBg.mp4" type="video/mp4" />
+      </video>
+
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1409 281" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <clipPath id="video-clip" clipPathUnits="objectBoundingBox">
+            <path transform="scale(0.000709, 0.00356)"
+              d="M156.791 58.2836H26.583C12.2236 58.2836 0.583008 69.9242 0.583008 84.2836V254.353C0.583008 268.712 12.2236 280.353 26.583 280.353H533.917C540.153 280.353 546.18 278.112 550.901 274.039L587.265 242.666C591.986 238.593 598.013 236.353 604.249 236.353H981.312C987.911 236.353 994.263 238.862 999.081 243.372L1031.08 273.333C1035.9 277.843 1042.25 280.353 1048.85 280.353H1346.58C1360.94 280.353 1372.58 268.712 1372.58 254.353V130.866C1372.58 124.081 1375.24 117.565 1379.97 112.709L1401.19 90.9616C1405.93 86.1053 1408.58 79.5892 1408.58 72.8043V26.3525C1408.58 11.9931 1396.94 0.352539 1382.58 0.352539H242.375C236.063 0.352539 229.967 2.64848 225.224 6.81212L173.942 51.824C169.199 55.9876 163.103 58.2836 156.791 58.2836Z"
+              fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+  </div>
+
+  <script>
+    const magneticSquares = document.querySelectorAll('.magneticSquare');
+
+    magneticSquares.forEach((square) => {
+      square.addEventListener('mousemove', (e) => {
+        const { left, top, width, height } = square.getBoundingClientRect();
+        const x = (e.clientX - left - width / 2) / 10;
+        const y = (e.clientY - top - height / 2) / 10;
+        square.style.transform = `translate(${x}px, ${y}px)`;
+      });
+
+      square.addEventListener('mouseleave', () => {
+        square.style.transform = `translate(0, 0)`;
+      });
+    });
+  </script>
+
+  <video autoplay loop muted playsinline>
+        <source src="/compressedbg.mp4" type="video/mp4" />
+      </video>
+</body>
+</html>

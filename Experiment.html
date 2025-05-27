@@ -4,7 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Responsive SVG-Clipped Video</title>
+
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet"> 
   <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
     .container {
       max-width: 1408px;
       height: 100vh;
@@ -42,13 +52,9 @@
       height: 0;
     }
 
-    .magneticSquare1 {
-        width: 29.5%;
-        height: auto;
-        aspect-ratio: 416 / 312;
-        top: 47px;
-        left: 56px;
+    .magneticSquare {
         display: grid;
+        gap: 12px;
         padding: 42px 32px;
         border-radius: 26px;
         box-shadow: 0px 1.13px 28.14px rgba(69, 42, 124, 0.1);
@@ -58,20 +64,90 @@
         background-color: rgba(255, 255, 255, 0.3);
     }
 
-    .magneticSquare2 {
+    .magneticSquare1 {
+        width: 29.5%;
+        height: auto;
+        aspect-ratio: 416 / 312;
+        top: 47px;
+        left: 56px;
+    }
 
+    .magneticSquare2 {
+        width: 7.3%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        top: -26%;
+        left: 26.2%;
     }
 
     .magneticSquare3 {
-
+        width: 21.73%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        top: -19%;
+        left: 35.1%;
     }
 
     .magneticSquare4 {
-
+        width: 21.75%;
+        height: auto;
+        aspect-ratio: 306 / 196;
+        top: -19%;
+        left: 58.4%;
     }
 
     .magneticSquare5 {
+        width: 29.5%;
+        height: auto;
+        aspect-ratio: 416 / 184;
+        top: 58%;
+        left: 58.4%;
+    }
 
+    .magneticSquare6 {
+        width: 13.9%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        top: -16%;
+        left: 81.8%;
+        border-radius: 50%;
+    }
+
+
+    .green-textbox {
+      height: 36px;
+      width: 100%;
+      display: flex;
+      background: linear-gradient(90deg, #BFFFCD 0%, rgba(255, 255, 255, 0.1) 100%);
+      border-radius: 7px;
+    }
+
+    .green-textbox__content-wrapper {
+      height: 34px;
+      width: calc(100% - 2px);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 9px;
+      padding: 7px 14px;
+      background: linear-gradient(90deg, #BFFFCD 0%, rgba(255, 255, 255, 0.1) 100%);
+      border-radius: 7px;
+    }
+
+    .green-textbox__icon {
+      width: 22px;
+      height: auto;
+    }
+
+    .green-textbox__text {
+      font-family: "Poppins", sans-serif;
+      font-weight: 500;
+      color: #0B0B10;
+    }
+
+
+    .white-textbox {
+      
     }
 
   </style>
@@ -79,14 +155,22 @@
 <body>
   <div class="container">
     <div class="svg-wrapper">
-      <div class="magneticSquare magneticSquare1"></div>
+      <div class="magneticSquare magneticSquare1">
+        <div class="green-textbox">
+          <div class="green-textbox__content-wrapper">
+            <img class="green-textbox__icon" src="/assets/checkIcon.svg">
+            <p class="green-textbox__text">New client joined!</p>
+          </div>
+        </div>
+      </div>
       <div class="magneticSquare magneticSquare2"></div>
       <div class="magneticSquare magneticSquare3"></div>
       <div class="magneticSquare magneticSquare4"></div>
       <div class="magneticSquare magneticSquare5"></div>
+      <div class="magneticSquare magneticSquare6"></div>
 
       <video autoplay loop muted playsinline>
-        <source src="/trimmedCompressedBg.mp4" type="video/mp4" />
+        <source src="/assets/optimizedBg2.mp4" type="video/mp4" />
       </video>
 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1409 281" preserveAspectRatio="xMidYMid meet">
